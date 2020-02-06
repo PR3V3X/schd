@@ -1,0 +1,505 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE8" />
+    <title>The Home Depot: Application Login</title>
+    <link rel="stylesheet" href="style/jquery.ui.all.css" />
+    <link rel="stylesheet" href="style/colorbox.css" />
+    <link rel="stylesheet" href="style/THD_Login.css" />
+
+    <script src="js/jquery-1.7.min.js" type="text/javascript"></script>
+    <script src="js/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+    <script src="js/jquery.i18n.properties-min-1.0.9.js" type="text/javascript"></script>
+    <script src="js/jquery.colorbox.js" type="text/javascript"></script>
+    <script src="js/jquery.browserLanguage.js" type="text/javascript"></script>
+    <script src="js/jquery.session.js" type="text/javascript"></script>
+    <script src="js/multilingual.js" type="text/javascript"></script>
+
+    <script type="text/javascript">
+
+    function getParamByName(name) {
+        var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+        return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+    }
+
+    var userLang = (navigator.language) ? navigator.language : navigator.userLanguage;
+
+    var start = navigator.userAgent.indexOf('[');
+    if (start > -1) {
+        var end = navigator.userAgent.indexOf(']');
+        if (end > -1) {
+            var language = navigator.userAgent.substring(start+1,end);
+        }
+    }
+
+    </script>
+
+</head>
+<body onload="document.THDLoginPage.j_username.focus();" id="login">
+    <div id="float">
+        <div id="container">
+            <div id="masthead">
+                <div id="banner">
+
+
+        <table id="header" border="0" width="100%">
+            <tr>
+                <td valign="top" nowrap="nowrap" class="brandBox">
+                    <table border="0" cellpadding="0" cellspacing="0">
+                        <tr>
+                            <td width=5%>&nbsp;</td>
+                            <td><img src="style/images/THD_logo.png" alt="Go Home" class="logo" width="57" height="57" id="logoTHD" style="margin-top: 10%" /></td>
+                            <td nowrap="nowrap" style="vertical-align:center;">
+                                <span style="position:relative; top:5px;">
+                                    &nbsp;<span class="appTitle" id="appTitle" style="margin-left: 5%"></span><br/>
+                                    &nbsp;<span class="appSubtitle" id="appTagline" style="margin-left: 5%"></span>
+                                </span>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td align="center" style="vertical-align: top" valign="top" class="menuBox">
+                    <div id="browser"></div>
+                </td>
+                <td align="right" nowrap="nowrap">
+                    <div id="langBox" style="margin-right: 17px"><span class="appSubtitle" id="langSelect"></span>&nbsp;&nbsp;
+                          <select id="lang">
+                            <option value="en_US">English</option>
+                            <option value="fr_CA">Fran&ccedil;ais</option>
+                          </select>
+                    </div>
+                </td>
+            </tr>
+        </table>
+
+                </div><!-- END #banner-->
+                <div id="orangeBar"><span id=messageBar></span></div><!-- END #orangeBar -->
+            </div><!-- END #masthead -->
+            <div id="content">
+                <div id="column1">
+                    <!-- Box Top Corners-->
+                    <div id="boxTop"></div>
+                    <div id="nottopgap"></div>
+                    <!--Content -->
+                        <div id="column1content">
+
+                            <!-- Begin Login Form -->
+                            <script type="text/javaScript">
+                                var uSelLang = getParamByName("language");
+                               var rootURL = window.location.hostname;
+ <!--                          var rootURL = "webapps-qa.homedepot.com";  -->
+                                parent.document.write("<form name=\"THDLoginPage\" method=\"post\" action=\"https://" + rootURL + "/MYTHDPassport/rs/clientUI/thdLoginRequest\" style=\"position:relative; top:-1px\">" );
+
+                                if (uSelLang != null && uSelLang != '') {
+                                    if (uSelLang.indexOf("fr") > -1 ) {
+                                        uSelLang = "fr_CA";
+                                    } else {
+                                        uSelLang = "en_US";
+                                    }
+                                    $("#lang").attr('value', uSelLang);
+                                    
+                                    parent.document.write("<input type=\"hidden\" name=\"language\" id=\"userLangPref\" value=\"" + uSelLang + "\" />" );
+                                    parent.document.write("<input type=\"hidden\" name=\"successUrl\" id=\"successUrl\" value=\"https://" + rootURL + "/LaborMgtTools/WFMEssLauncher?language=" + uSelLang + "\" />" );
+                                } else {
+                                    parent.document.write("<input type=\"hidden\" name=\"language\" value=\"en_US\" id=\"userLangPref\" />" );
+                                    parent.document.write("<input type=\"hidden\" name=\"successUrl\" id=\"successUrl\" value=\"https://" + rootURL + "/LaborMgtTools/WFMEssLauncher?language=en_US\" />" );
+                                }
+                            </script>
+
+                            <input type="hidden" name="callingProgram" value="lmslLaborMgtTools" />
+                            <input type="hidden" name="uiLoc" value="ext" />
+                            <input type="hidden" name="appendSessionID" value="false" />
+
+
+                                <div class="theBody">
+                                    <input type="hidden" name="myLocation" value="Other" />
+                                    <input type="hidden" name="storeUser" value="false" />
+
+                                    <script type="text/javaScript">
+                                    var name=navigator.appName.toLowerCase();
+                                    var userAgent=navigator.userAgent.toLowerCase();
+                                    var version=navigator.appVersion.toLowerCase();
+                                    var is_minor;
+                                    var is_major;
+                                    if (name.indexOf("netscape")!=-1)
+                                    {
+                                        name="ns";
+                                    }
+                                    else
+                                    {
+                                        if (name.indexOf("microsoft")!=-1)
+                                        {
+                                            name="msie";
+                                        }
+                                        else
+                                        {
+                                            name="n/a";
+                                        }
+                                    }
+
+                                    if ( name == "msie" )
+                                    {
+                                        var iePos  = version.indexOf('msie');
+                                        if (iePos != -1)
+                                        {
+                                            is_minor = parseFloat(version.substring(iePos+5,version.indexOf(';',iePos)));
+                                            is_major = parseInt(is_minor);
+                                        }
+                                    }
+
+                                    if (( name == "msie" && is_minor >= 5.5 ) || (name == "ns"))
+                                    {
+                                    }
+                                    else
+                                    {
+                                        document.write("<INPUT type=\"hidden\" name=\"browserMessage\" value=\"Bad Browser\" >" );
+                                        document.write("            <H2><DIV class=\"wpsRequiredLabelText\" style=\"color: red\">" );
+                                        document.write("                " + "<SPAN ID=\"badBrowser\"></SPAN>" + "<BR>" );
+                                        document.write("            </DIV></H2>" );
+                                    }
+
+                                    function fixDate(date)
+                                    {
+                                        var base = new Date(0);
+                                        var skew = base.getTime();
+                                        if (skew > 0)
+                                        {
+                                            date.setTime(date.getTime() - skew);
+                                        }
+                                    }
+
+                                    function THDLoginPage_checkForStoreNumber()
+                                    {
+                                        storeValue = parent.document.THDLoginPage['j_storenumber'].value;
+                                        if ( storeValue != '' )
+                                        {
+                                            parent.document.THDLoginPage.userBelongsTo[0].checked=true;
+                                            parent.document.THDLoginPage['storeUser'].value = "true";
+                                            parent.document.THDLoginPage.j_userbelongsto.value="Store";
+                                        }
+                                    }
+
+                                    function THDLoginPage_clearStoreField()
+                                    {
+                                        storeNumber = parent.document.THDLoginPage.j_storenumber.value;
+                                        if ( storeNumber == "####" )
+                                        {
+                                            parent.document.THDLoginPage.j_storenumber.value = "";
+                                        }
+                                    }
+
+                                    function THDLoginPage_setStoreFields (enable)
+                                    {
+                                        parent.document.THDLoginPage['storeUser'].value=enable;
+                                        if ( enable )
+                                        {
+                                            parent.document.THDLoginPage.j_userbelongsto.value="Store";
+                                            parent.document.THDLoginPage.j_storenumber.focus();
+                                        }
+                                        else
+                                        {
+                                            parent.document.THDLoginPage.j_storenumber.value="####";
+                                            parent.document.THDLoginPage.j_userbelongsto.value="Other";
+                                        }
+                                    }
+
+                                    function THDLoginPage_validate()
+                                    {
+                                        if ( THDLoginPage_checkStoreID() )
+                                        {
+                                            if ( THDLoginPage_checkUserID() )
+                                            {
+                                                if ( THDLoginPage_checkPassword() )
+                                                {
+                                                    THDLoginPage_setStoreCookie();
+                                                    THDLoginPage_setLocationCookie();                                                  
+                                                    $.cookie('SLLogin', document.URL, {path: '/'} ) ;
+                                                    return true;
+                                                }
+                                                else
+                                                {
+                                                    parent.document.THDLoginPage['j_password'].focus();
+                                                    return false;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                parent.document.THDLoginPage['j_username'].focus();
+                                                return false;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            parent.document.THDLoginPage['j_storenumber'].focus();
+                                            return false;
+                                        }
+                                    }
+
+                                    function THDLoginPage_checkUserID()
+                                    {
+                                        usernameValue = parent.document.THDLoginPage['j_username'].value;
+                                        if ( usernameValue != null )
+                                        {
+                                            if ( usernameValue.length > 0 )
+                                            {
+                                                return true;
+                                            }
+                                            else
+                                            {
+                                                alert( jQuery.i18n.prop('thd_errorID') );
+                                                return false;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            alert( jQuery.i18n.prop('thd_errorID') );
+                                            return false;
+                                        }
+                                    }
+
+                                    function THDLoginPage_checkPassword()
+                                    {
+                                        passwordValue = parent.document.THDLoginPage['j_password'].value;
+                                        if ( passwordValue != null )
+                                        {
+                                            if ( passwordValue.length > 0 )
+                                            {
+                                                return true;
+                                            }
+                                            else
+                                            {
+                                                alert( jQuery.i18n.prop('thd_errorPwd') );
+                                                return false;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            alert( jQuery.i18n.prop('thd_errorPwd') );
+                                            return false;
+                                        }
+                                    }
+
+                                    function THDLoginPage_checkStoreID()
+                                    {
+                                        storeValue = parent.document.THDLoginPage['j_storenumber'].value;
+                                        storeUserValue = parent.document.THDLoginPage['storeUser'].value;
+                                        if ( storeUserValue == "false" )
+                                        {
+                                            return true;
+                                        }
+                                        else
+                                        {
+                                            if ( storeValue != null )
+                                            {
+                                                if ( storeValue.length > 0 )
+                                                {
+                                                    if ( isNaN ( storeValue ) )
+                                                    {
+                                                        alert( jQuery.i18n.prop('thd_errorstoreNum') );
+                                                        return false;
+                                                    }
+                                                    else
+                                                    {
+                                                        if ( storeValue.length < 4 )
+                                                        {
+                                                            alert( jQuery.i18n.prop('thd_errorstoreInt') );
+                                                            return false;
+                                                        }
+                                                        else
+                                                        {
+                                                            return true;
+                                                        }
+                                                    }
+                                                }
+                                                else
+                                                {
+                                                    alert( jQuery.i18n.prop('thd_errornostoreNum') );
+                                                    return false;
+                                                }
+                                            }
+                                            else
+                                            {
+                                                alert( jQuery.i18n.prop('thd_errornostoreNum') );
+                                                return false;
+                                            }
+                                        }
+                                    }
+
+                                    function THDLoginPage_setStoreCookie()
+                                    {
+                                        storeNumber = parent.document.THDLoginPage.j_storenumber.value;
+                                        var now = new Date();
+                                        fixDate(now);
+                                        now.setTime(now.getTime() + 24 * 60 * 60 * 1000);
+                                        setCookie('storeNumber', storeNumber, now, '/', 'homedepot.com');
+                                    }
+
+                                    function THDLoginPage_setLocationCookie()
+                                    {
+                                        if (parent.document.THDLoginPage.storeUser.value=="true") {
+                                            myLocation=document.getElementsByName("j_userbelongsto")[0].value;
+                                        } else {
+                                            myLocation = document.getElementsByName("j_userbelongsto")[1].value;}
+                                        var now = new Date();
+                                        fixDate(now);
+                                        now.setTime(now.getTime() + 24 * 60 * 60 * 1000);
+                                        setCookie('myLocation', myLocation, now, '/', 'homedepot.com');
+                                        setCookie('slLogin','external',now,'/','homedepot.com');
+                                    }
+
+                                                function setCookie(name, value, expires, path, domain, secure)
+                                                {
+                                                    var curCookie = name + "=" + escape(value) +
+                                                       ((expires) ? "; expires=" + expires.toGMTString() : "") +
+                                                       ((path) ? "; path=" + path : "") +
+
+                                                       ((domain) ? "; domain=" + domain : "") +
+                                                       ((secure) ? "; secure" : "");
+
+                                                    document.cookie = curCookie;
+                                                }
+
+                                    function getCookie(name)
+                                       {
+                                        var dc = document.cookie;
+                                        var prefix = name + "=";
+                                        var begin = dc.indexOf(prefix);
+
+                                        if (begin == -1)
+                                        {
+                                            // Read store number from environment variables for IE only
+                                            if (name == "storeNumber" && navigator.appName.toLowerCase().indexOf("microsoft") != -1) {
+                                                //alert("AppName" + navigator.appName.toLowerCase());
+                                                var wshShell = new ActiveXObject("WScript.shell");
+                                                var sysEnv = wshShell.Environment("System");
+                                                //alert("Store: " + sysEnv("storeno"));
+                                                var store = sysEnv("storeno");
+                                                //alert("Store set: " + store);
+                                                return store;
+                                            }
+                                            return null;
+                                        }
+
+                                        var end = document.cookie.indexOf(";", begin);
+                                        if (end == -1)
+                                        {
+                                            end = dc.length;
+                                        }
+
+                                        return unescape(dc.substring(begin + prefix.length, end));
+                                       }
+
+                                    var myLocation = getCookie("myLocation");
+                                    var storeNumber = getCookie("storeNumber");
+                                    if (myLocation && myLocation != "undefined")
+                                    {
+                                        parent.document.THDLoginPage.myLocation.value=myLocation;
+                                    } else if (storeNumber && storeNumber == "####")
+                                        {
+                                            parent.document.THDLoginPage.myLocation.value="Other";
+                                        } else if (storeNumber)
+                                        {
+                                            parent.document.THDLoginPage.myLocation.value="Store";
+                                        }
+                                    if (parent.document.THDLoginPage.myLocation.value == "Other" )
+                                    {
+                                        parent.document.THDLoginPage.storeUser.value="false";
+                                    }
+                                    else
+                                    {
+                                        parent.document.THDLoginPage.storeUser.value="true";
+                                    }
+                                    </script>
+
+                                    <table border="0" cellpadding="0" cellspacing="0" style="border: 2px solid #666;" >
+                                        <tr>
+                                            <td style="padding: 10px;" id=loginMsg><span id=mainMsg></span></td>
+                                        </tr>
+                                    </table>
+
+                                      <table border="0" class="form" width="500" align="center">
+                                        <tbody>
+                                            <tr><td colspan="2">&nbsp;</td></tr>
+                                            <tr>
+                                                <td class="fieldLabel" align="right" width="250px"><span id="loc"></span></td>
+                                                <td width="60%">
+                                                <script type="text/javaScript">
+                                                    var myLocation = parent.document.THDLoginPage.myLocation.value;
+                                                    if (myLocation == "Store" && storeNumber)
+                                                    {
+                                                      parent.document.write("<INPUT type=\"radio\" name=\"j_userbelongsto\" value=\"Store\" onclick=\"THDLoginPage_setStoreFields(true)\" checked id=\"userBelongsTo\"> <label for=\"userBelongsTo\"><span id=\"storeLabel\"></span>&nbsp;</label>");
+                                                      parent.document.THDLoginPage.j_userbelongsto.value="Store";
+                                                    }
+                                                    else
+                                                    {
+                                                      parent.document.write("<INPUT type=\"radio\" name=\"j_userbelongsto\" value=\"Store\" onclick=\"THDLoginPage_setStoreFields(true)\" id=\"userBelongsTo\"> <label for=\"userBelongsTo\"><span id=\"storeLabel\"></span>&nbsp;</label>");
+                                                    }
+                                                    if (myLocation == "Store" && storeNumber)
+                                                    {
+                                                      parent.document.write("<INPUT type=\"text\" name=\"j_storenumber\" size=\"6\" maxlength=\"4\" value=" + storeNumber + " onFocus=\"THDLoginPage_clearStoreField()\" onChange=\"THDLoginPage_checkForStoreNumber()\"><BR>");
+                                                    }
+                                                    else
+                                                    {
+                                                      parent.document.write("<INPUT type=\"text\" name=\"j_storenumber\" size=\"6\" maxlength=\"4\" value=\"####\" onFocus=\"THDLoginPage_clearStoreField()\" onChange=\"THDLoginPage_checkForStoreNumber()\"><BR>");
+                                                    }
+                                                    if (myLocation == "Store" && storeNumber)
+                                                    {
+                                                      parent.document.write("<INPUT type=\"radio\" name=\"j_userbelongsto\" value=\"Other\" onclick=\"THDLoginPage_setStoreFields(false)\" id=\"userBelongsTo2\"> <label for=\"userBelongsTo2\"><span id=\"otherLoc\"></span>&nbsp;</label><BR>" );
+                                                    }
+                                                    else
+                                                    {
+                                                      parent.document.write("<INPUT type=\"radio\" name=\"j_userbelongsto\" value=\"Other\" onclick=\"THDLoginPage_setStoreFields(false)\" checked id=\"userBelongsTo2\"> <label for=\"userBelongsTo2\"><span id=\"otherLoc\"></span>&nbsp;</label><BR>" );
+                                                      parent.document.THDLoginPage.j_userbelongsto.value="Other";
+                                                      parent.document.THDLoginPage.storeUser.value="false";
+                                                    }
+                                                    </script>
+                                                    </td>
+                                               </tr>
+                                            <tr>
+                                                <td class="fieldLabel" align="right" valign="top"><span id=userID></span></td>
+                                                <td><input size="10" type="text" name="j_username" maxlength="25" /></td>
+                                            </tr>
+                                            <tr>
+                                                <td class="fieldLabel" align="right"><span id=lblPswd></span></td>
+                                                <td><input size="10" type="password" name="j_password" maxlength="25" /></td>
+                                            </tr>
+
+                                            <tr></tr>
+                                            <tr></tr>
+                                            <tr>
+                                                <td>&nbsp;</td>
+                                                <td valign="top" id="loginBar" >  <!-- valign="top">  -->
+                                                    <button onclick="return THDLoginPage_validate()" id="submit" type="submit" value="Login" name="action" style="border:none; cursor:pointer; cursor:hand;"><span id="signinBtn"></span></button>
+                                                </td>
+                                            </tr>
+                                            <!-- <tr>
+                                                <td>&nbsp;</td>
+                                                <td valign="top"><a class="forgotpassword" href="#"><span id="forgotPwd"></span></a></td>
+                                            </tr> -->
+                                        </tbody>
+                                      </table>
+                                </div>
+                            </form><!-- END Login Form -->
+                        </div><!-- END #column1Content -->
+                    <div id="boxBottom" ></div><!-- END boxBottom -->
+                </div>
+                <!-- END Column1 (Content Area Container) -->
+                <!-- END Content Area Container (Column1) -->
+                <div id="footer">
+                    <div id="disclaimer" style="font-size: .7em; text-align: center; font-weight: bold; padding-top: 5px; padding-bottom: 5px;line-height:110%;color: #685c56">
+                    The information contained in this system is confidential and proprietary and is available only for approved business purposes.
+                    This system and any related information is not to be used for any purpose that is unlawful or prohibited by any policy instituted by the COMPANY. Access to this system
+                    is limited to those individuals with a need to know the information contained herein. NO INFORMATION FROM THIS SYSTEM MAY BE COPIED OR PROVIDED TO ANY PARTY WITHOUT PRIOR
+                    AUTHORIZATION FROM THE COMPANY. As a user of these systems you have no expectation of privacy and none is authorized or granted. Your use of this system constitutes your
+                    agreement and acceptance of these terms.
+                    </div>
+                </div><!-- END #footer -->
+            </div>
+        <div class="copyright" id="copyright"></div>
+    </div><!-- END #container -->
+</div><!-- END #float -->
+</body>
+</html>
+

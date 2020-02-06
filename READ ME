@@ -1,0 +1,26 @@
+Store Number (****):
+"<input type="text" name="j_storenumber" size="6" maxlength="4" value="####" onfocus="THDLoginPage_clearStoreField()" onchange="THDLoginPage_checkForStoreNumber()">"
+
+User ID (*******):
+"<input size="10" type="text" name="j_username" maxlength="25">"
+
+User Password (*******):
+"<input size="10" type="password" name="j_password" maxlength="25">"
+
+Lines 1 - 277 ; 457 - 609 aren't needed.
+
+Use this remove specfic lines -> "sed --in-place '<line #>, <line #>d; <line #>, <line #>d' <filename>" or use "sed '1 , 277d; 457, 609d' <my_schd.html> schd_alt.html".
+
+Line 456 is a table that has scheduled times.
+
+This contains the needed html data for parsing.
+'''
+<li>
+    <div class="date"><span>12/28</span></div>
+    <span class="hours">2:00p - 9:00p</span>
+        <div class="bottom lunch">
+            <div class="left">L: 5:00p - 5:30p</div>
+        </div>
+</li>
+'''
+

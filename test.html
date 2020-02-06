@@ -1,0 +1,609 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" dir="ltr">
+<head id="ctl00_Head1"><meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <!-- Force latest IE Version/Play nice (even in intranet) & Chrome Frame.  -->
+    <title>
+	My Schedule
+</title><meta name="author" content="Empower™ Software Solutions" /><meta name="copyright" content="Copyright (c) Empower™ Software Solutions" /><meta name="generator" content="Empower™ Software Solutions" /><meta name="MSSmartTagsPreventParsing" content="true" /><meta http-equiv="imagetoolbar" content="no" /><meta http-equiv="Cache-Control" content="Private" /><link rel="icon" href="Images/favicon.ico" type="image/x-icon" /><link rel="shortcut icon" href="Images/favicon.ico" type="image/x-icon" /><link href="Styles/empower-global.css" type="text/css" rel="Stylesheet" media="screen, projector" /><link href="Styles/empower-print.css" type="text/css" rel="Stylesheet" media="all" /><link href="Styles/TreeControl/dashstyle.css" type="text/css" rel="stylesheet" /><link href="Styles/TreeControl/jquery-ui.custom.css" type="text/css" rel="stylesheet" />
+    <script type="text/javascript" src="./Scripts/Printing.js"></script>
+    <!--[if lt IE 9]><script type="text/javascript" src="./Scripts/html5.js"></script><![endif]-->
+    <script charset="utf-8" src="./Scripts/jquery.min.js" type="text/javascript"></script>
+    <script charset="utf-8" src="./Scripts/jquery.easing.1.3.js" type="text/javascript"></script>
+    <script charset="utf-8" src="~/Scripts/GenericTree.js" type="text/javascript"></script>
+    <script charset="utf-8" src="~/Scripts/LoadTree.js" type="text/javascript"></script>
+    <script charset="utf-8" src="~/Scripts/jquery-custom-libs.js" type="text/javascript"></script>
+    <script charset="utf-8" src="~/Scripts/LaborSelect.js" type="text/javascript"></script>
+
+    <!-- 
+         Empower ESS
+         Copyright 2011-2012 Empower&#8482; Software Solutions
+         All rights reserved, all code & design copyrighted.
+         Development, design, HTML, CSS and JS made by Empower&#8482; Software Solutions - http://www.empowersoftware.com
+         Support: support@empowersoftware.com
+        
+         888~~       e    e      888~-_     ,88~-_   Y88b         / 888~~  888~-_   
+         888___     d8b  d8b     888   \   d888   \   Y88b       /  888___ 888   \  
+         888       d888bdY88b    888    | 88888    |   Y88b  e  /   888    888    | 
+         888      / Y88Y Y888b   888   /  88888    |    Y88bd8b/    888    888   /  
+         888     /   YY   Y888b  888_-~    Y888   /      Y88Y8Y     888    888_-~   
+         888___ /          Y888b 888        `88_-~        Y  Y      888___ 888 ~-_  
+
+     -->
+<link href="App_Themes/OrangeWhite/default.css" type="text/css" rel="stylesheet" /><link href="/EmpowerESS/WebResource.axd?d=UkPzAI-1yzOpXQLFYOCFTwNtObDkvpffx6OC9yGF9g2jrqP2z7HiPrIzDxORBHBVBX1FI5vUTZZvThYmlNj5ks-sx4FUZrDDQjBsBpvi3UqY7TRuuk7wfXawxzTldc1g9siaPuK-Ky94ln1zdjxYzQoT5Mk1&amp;t=635899093360000000" type="text/css" rel="stylesheet" /></head>
+<!--[if IEMobile 7]><body class="app ie7m"><![endif]-->
+<!--[if lt IE 7]><body class="app ie ie6 lt7 lt8 lt9"><![endif]-->
+<!--[if IE 7]><body class="app ie ie7 lte7 lt8 lt9"><![endif]-->
+<!--[if IE 8]><body class="app ie ie8 lte8 lt9"><![endif]-->
+<!--[if gte IE 9]><body class="app ie ie9 lte9 ieedge modern"><![endif]-->
+<!--[if (gt IEMobile 7)|!(IEMobile)]><body class="app mobile"><![endif]-->
+<!--[if !IE]><!-->
+<body id="ctl00_appBody" class="app notie modern en" onload="initApp()">
+    <!--<![endif]-->
+    <form name="aspnetForm" method="post" action="Schedule.aspx" id="aspnetForm">
+<div>
+<input type="hidden" name="phTree" id="phTree" value="ctl00_tpTransfer_phTree" />
+<input type="hidden" name="Othervalue" id="Othervalue" value="[Other...]" />
+<input type="hidden" name="tempItemPlaceHolder" id="tempItemPlaceHolder" value="ctl00_tpTransfer_tempPlaceHolder" />
+<input type="hidden" name="tempSelectedChangeId" id="tempSelectedChangeId" value="ctl00_tpTransfer_tempSeletedChangeId" />
+<input type="hidden" name="overlayPanel" id="overlayPanel" value="ctl00_tpTransfer_divTree" />
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" />
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" />
+<input type="hidden" name="ctl00_tabContainer_ClientState" id="ctl00_tabContainer_ClientState" value="{&quot;ActiveTabIndex&quot;:0,&quot;TabState&quot;:[true,true,true,true,true]}" />
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUJMTMyMjEwODkxDxYIHgdsYXN0ZGF5aB4HbmV4dGRheWgeDmRpc3BsYXlMYXN0RGF5aB4OZGlzcGxheU5leHREYXloFgJmD2QWAgIDDxYEHgVjbGFzcwUTYXBwIG5vdGllIG1vZGVybiBlbh4Gb25sb2FkBQlpbml0QXBwKCkWAmYPZBY4AgEPFgIeBFRleHQFMEphdmFTY3JpcHQgc2VlbXMgdG8gYmUgZGlzYWJsZWQgaW4geW91ciBicm93c2VyLmQCAw8WAh8GBWJZb3UgbXVzdCBoYXZlIEphdmFTY3JpcHQgZW5hYmxlZCBpbiB5b3VyIGJyb3dzZXIgdG8gdXRpbGl6ZSB0aGUgZnVuY3Rpb25hbGl0eSBvZiB0aGlzIGFwcGxpY2F0aW9uLmQCBw8WBB4FdGl0bGUFDWhvbWVkZXBvdC5wbmceBXN0eWxlBUtiYWNrZ3JvdW5kOnVybCgnL0VtcG93ZXJFU1MvSW1hZ2VzL0xvZ28vaG9tZWRlcG90LnBuZycpIG5vLXJlcGVhdCB0b3AgbGVmdDtkAgkPFgIfBgUIRW1wbG95ZWVkAgsPFgIfBgUMU2VsZiBTZXJ2aWNlZAINDxYCHwYFB1dlbGNvbWVkAg8PFgIfBgUOTE9WSU5TLCBQQVVMIEpkAhEPFgIeB1Zpc2libGVoFgQCAQ8WAh8GZWQCAw8WAh8GZGQCEw8WAh8GBR1UaHVyc2RheSwgRGVjZW1iZXIgMjZ0aCwgMjAxOWQCFQ8WAh8JaBYEAgEPFgIfBgUFUHVuY2hkAgMPFgIfBgUOVHJhbnNmZXIgcHVuY2hkAhcPDxYCHwYFBUVtYWlsZGQCGQ8WAh8GBQ9FbWFpbCB0aGlzIHBhZ2VkAhsPFgIfBAUFcHJpbnQWBGYPZBYCZg8WAh4JaW5uZXJodG1sBQVQcmludGQCAg8WAh8GBQ9QcmludCB0aGlzIHBhZ2VkAh0PZBYEZg8WAh8GBQRIZWxwZAIBDxYCHwYFG0dldCBoZWxwIG9uIGhvdyB0byB1c2UgdGhpc2QCHw8PFgIfBgUIU2lnbiBvdXRkZAIhDxYCHwYFCFNpZ24gb3V0ZAIlD2QWAgIBD2QWAmYPZBYIAgEPZBYCAgEPDxYCHwYFZ1lvdXIgc2NoZWR1bGUgaGFzIGNoYW5nZWQgc2luY2UgaXQgd2FzIGxhc3Qgdmlld2VkLiAgQW4gYWxlcnQgaWNvbiBzaG93cyB3aGljaCB3ZWVrcyBoYXZlIGJlZW4gdXBkYXRlZC5kZAIDDw8WCh4IQ3NzQ2xhc3MFFGNhbGVuZGFyQnRuIGRpc2FibGVkHgdUb29sVGlwBQhDYWxlbmRhch8GBQhDYWxlbmRhch4HRW5hYmxlZGgeBF8hU0ICAmRkAgUPDxYEHwwFBExpc3QfBgUETGlzdGRkAgcPZBYCAgEPZBYEZg9kFgICAQ9kFhgCAQ8WAh8JaGQCAw8WAh8EBQtmaXJzdC1jaGlsZBYCZg8WAh8GBQNNb25kAgUPFgIfBgUDVHVlZAIHDxYCHwYFA1dlZGQCCQ8WAh8GBQNUaHVkAgsPFgIfBgUDRnJpZAINDxYCHwYFA1NhdGQCDw8WAh8EBQpsYXN0LWNoaWxkFgJmDxYCHwYFA1N1bmQCEQ8WAh8JaGQCEw8WAh8GBQNIcnNkAhUPZBYCAgEPFgIfBgWDKjx1bCBjbGFzcz0iZGF5cyByb3cgZXZlbiBtYXggZmlyc3QtY2hpbGQiPg0KICA8bGkgY2xhc3M9ImZpcnN0LWNoaWxkIj4NCiAgICA8ZGl2IGNsYXNzPSJkYXRlIj48c3Bhbj4xMi8yMzwvc3Bhbj48L2Rpdj4NCiAgICA8c3BhbiBjbGFzcz0iaG91cnMiPjY6MDBhIC0gMjozMHAgPGVtPio8L2VtPjwvc3Bhbj4NCiAgICAgIDxkaXYgY2xhc3M9ImV4dHJhIj4NCiAgICAgICAgPGRpdiBjbGFzcz0iYmxvY2sgY2xlYXJmaXgiPg0KICAgICAgICAgIDxkaXYgY2xhc3M9ImxlZnQiPlBsdW1iaW5nLkFzc29jaWF0ZTwvZGl2Pg0KICAgICAgICA8L2Rpdj4NCiAgICAgICAgPGRpdiBjbGFzcz0iYmxvY2sgY2xlYXJmaXgiPg0KICAgICAgICAgIDxkaXYgY2xhc3M9ImxlZnQiPjY6MDBhIC0gMjozMHA8L2Rpdj4NCiAgICAgICAgPC9kaXY+DQogICAgICA8L2Rpdj4NCiAgICAgICAgPGRpdiBjbGFzcz0iYm90dG9tIGx1bmNoIj4NCiAgICAgICAgICAgIDxkaXYgY2xhc3M9ImxlZnQiPkw6IDEwOjAwYSAtIDEwOjMwYTwvZGl2Pg0KICAgICAgICA8L2Rpdj4NCiAgPC9saT4NCiAgPGxpPg0KICAgIDxkaXYgY2xhc3M9ImRhdGUiPjxzcGFuPjEyLzI0PC9zcGFuPjwvZGl2Pg0KICAgIDxzcGFuIGNsYXNzPSJob3VycyI+MTI6MDBwIC0gNTowMHA8L3NwYW4+DQogICAgICAgIDxkaXYgY2xhc3M9ImJvdHRvbSBsdW5jaCI+DQogICAgICAgIDwvZGl2Pg0KICA8L2xpPg0KICA8bGk+DQogICAgPGRpdiBjbGFzcz0iZGF0ZSI+PHNwYW4+MTIvMjU8L3NwYW4+PC9kaXY+DQogIDwvbGk+DQogIDxsaSBjbGFzcz0iY3VycmVudCI+DQogICAgPGRpdiBjbGFzcz0iZGF0ZSI+PHNwYW4+MTIvMjY8L3NwYW4+PC9kaXY+DQogICAgPHNwYW4gY2xhc3M9ImhvdXJzIj4zOjAwcCAtIDk6MDBwPC9zcGFuPg0KICAgICAgICA8ZGl2IGNsYXNzPSJib3R0b20gbHVuY2giPg0KICAgICAgICA8L2Rpdj4NCiAgPC9saT4NCiAgPGxpPg0KICAgIDxkaXYgY2xhc3M9ImRhdGUiPjxzcGFuPjEyLzI3PC9zcGFuPjwvZGl2Pg0KICAgIDxzcGFuIGNsYXNzPSJob3VycyI+OTowMGEgLSA1OjMwcCA8ZW0+KjwvZW0+PC9zcGFuPg0KICAgICAgPGRpdiBjbGFzcz0iZXh0cmEiPg0KICAgICAgICA8ZGl2IGNsYXNzPSJibG9jayBjbGVhcmZpeCI+DQogICAgICAgICAgPGRpdiBjbGFzcz0ibGVmdCI+UGx1bWJpbmcuQXNzb2NpYXRlPC9kaXY+DQogICAgICAgIDwvZGl2Pg0KICAgICAgICA8ZGl2IGNsYXNzPSJibG9jayBjbGVhcmZpeCI+DQogICAgICAgICAgPGRpdiBjbGFzcz0ibGVmdCI+OTowMGEgLSA1OjMwcDwvZGl2Pg0KICAgICAgICA8L2Rpdj4NCiAgICAgIDwvZGl2Pg0KICAgICAgICA8ZGl2IGNsYXNzPSJib3R0b20gbHVuY2giPg0KICAgICAgICAgICAgPGRpdiBjbGFzcz0ibGVmdCI+TDogMTozMHAgLSAyOjAwcDwvZGl2Pg0KICAgICAgICA8L2Rpdj4NCiAgPC9saT4NCiAgPGxpPg0KICAgIDxkaXYgY2xhc3M9ImRhdGUiPjxzcGFuPjEyLzI4PC9zcGFuPjwvZGl2Pg0KICAgIDxzcGFuIGNsYXNzPSJob3VycyI+MjowMHAgLSA5OjAwcDwvc3Bhbj4NCiAgICAgICAgPGRpdiBjbGFzcz0iYm90dG9tIGx1bmNoIj4NCiAgICAgICAgICAgIDxkaXYgY2xhc3M9ImxlZnQiPkw6IDU6MDBwIC0gNTozMHA8L2Rpdj4NCiAgICAgICAgPC9kaXY+DQogIDwvbGk+DQogIDxsaSBjbGFzcz0ibGFzdC1jaGlsZCI+DQogICAgPGRpdiBjbGFzcz0iZGF0ZSI+PHNwYW4+MTIvMjk8L3NwYW4+PC9kaXY+DQogIDwvbGk+DQogIDxsaSBjbGFzcz0ic21hbGwiPg0KICAgIDxzcGFuIGNsYXNzPSJ0b2dnbGUgbWF4Ij48YSBocmVmPSIjIiBjbGFzcz0idG9nZ2xlIHZpZXciPnRvZ2dsZTwvYT48L3NwYW4+DQogICAgPHNwYW4gY2xhc3M9ImhvdXJzIj4zMy41MDwvc3Bhbj4NCiAgPC9saT4NCjwvdWw+DQo8dWwgY2xhc3M9ImRheXMgcm93IG9kZCBtaW4gY2xlYXJmaXgiPg0KICA8bGkgY2xhc3M9ImZpcnN0LWNoaWxkIj4NCiAgICA8ZGl2IGNsYXNzPSJkYXRlIj48c3Bhbj4xMi8zMDwvc3Bhbj48L2Rpdj4NCiAgPC9saT4NCiAgPGxpPg0KICAgIDxkaXYgY2xhc3M9ImRhdGUiPjxzcGFuPjEyLzMxPC9zcGFuPjwvZGl2Pg0KICAgIDxzcGFuIGNsYXNzPSJob3VycyI+MTA6MDBhIC0gNjowMHA8L3NwYW4+DQogICAgICAgIDxkaXYgY2xhc3M9ImJvdHRvbSBsdW5jaCI+DQogICAgICAgICAgICA8ZGl2IGNsYXNzPSJsZWZ0Ij5MOiAyOjAwcCAtIDI6MzBwPC9kaXY+DQogICAgICAgIDwvZGl2Pg0KICA8L2xpPg0KICA8bGk+DQogICAgPGRpdiBjbGFzcz0iZGF0ZSI+PHNwYW4+MDEvMDE8L3NwYW4+PC9kaXY+DQogICAgPHNwYW4gY2xhc3M9ImhvdXJzIj4xMTozMGEgLSA4OjAwcDwvc3Bhbj4NCiAgICAgICAgPGRpdiBjbGFzcz0iYm90dG9tIGx1bmNoIj4NCiAgICAgICAgICAgIDxkaXYgY2xhc3M9ImxlZnQiPkw6IDM6MzBwIC0gNDowMHA8L2Rpdj4NCiAgICAgICAgPC9kaXY+DQogIDwvbGk+DQogIDxsaT4NCiAgICA8ZGl2IGNsYXNzPSJkYXRlIj48c3Bhbj4wMS8wMjwvc3Bhbj48L2Rpdj4NCiAgPC9saT4NCiAgPGxpPg0KICAgIDxkaXYgY2xhc3M9ImRhdGUiPjxzcGFuPjAxLzAzPC9zcGFuPjwvZGl2Pg0KICAgIDxzcGFuIGNsYXNzPSJob3VycyI+MTI6MDBwIC0gOTowMHA8L3NwYW4+DQogICAgICAgIDxkaXYgY2xhc3M9ImJvdHRvbSBsdW5jaCI+DQogICAgICAgICAgICA8ZGl2IGNsYXNzPSJsZWZ0Ij5MOiA0OjAwcCAtIDQ6MzBwPC9kaXY+DQogICAgICAgIDwvZGl2Pg0KICA8L2xpPg0KICA8bGk+DQogICAgPGRpdiBjbGFzcz0iZGF0ZSI+PHNwYW4+MDEvMDQ8L3NwYW4+PC9kaXY+DQogICAgPHNwYW4gY2xhc3M9ImhvdXJzIj45OjAwYSAtIDU6MzBwPC9zcGFuPg0KICAgICAgICA8ZGl2IGNsYXNzPSJib3R0b20gbHVuY2giPg0KICAgICAgICAgICAgPGRpdiBjbGFzcz0ibGVmdCI+TDogMTowMHAgLSAxOjMwcDwvZGl2Pg0KICAgICAgICA8L2Rpdj4NCiAgPC9saT4NCiAgPGxpIGNsYXNzPSJsYXN0LWNoaWxkIj4NCiAgICA8ZGl2IGNsYXNzPSJkYXRlIj48c3Bhbj4wMS8wNTwvc3Bhbj48L2Rpdj4NCiAgICA8c3BhbiBjbGFzcz0iaG91cnMiPjk6MDBhIC0gNTozMHA8L3NwYW4+DQogICAgICAgIDxkaXYgY2xhc3M9ImJvdHRvbSBsdW5jaCI+DQogICAgICAgICAgICA8ZGl2IGNsYXNzPSJsZWZ0Ij5MOiAxOjAwcCAtIDE6MzBwPC9kaXY+DQogICAgICAgIDwvZGl2Pg0KICA8L2xpPg0KICA8bGkgY2xhc3M9InNtYWxsIj4NCiAgICA8c3BhbiBjbGFzcz0idG9nZ2xlIG1pbiI+PGEgaHJlZj0iIyIgY2xhc3M9InRvZ2dsZSB2aWV3Ij50b2dnbGU8L2E+PC9zcGFuPg0KICAgIDxzcGFuIGNsYXNzPSJob3VycyI+NDAuMDA8L3NwYW4+DQogIDwvbGk+DQo8L3VsPg0KPHVsIGNsYXNzPSJkYXlzIHJvdyBldmVuIG1pbiBsYXN0LWNoaWxkIj4NCiAgPGxpIGNsYXNzPSJmaXJzdC1jaGlsZCI+DQogICAgPGRpdiBjbGFzcz0iZGF0ZSI+PHNwYW4+MDEvMDY8L3NwYW4+PC9kaXY+DQogICAgPHNwYW4gY2xhc3M9ImhvdXJzIj4xMDowMGEgLSA2OjMwcCA8ZW0+KjwvZW0+PC9zcGFuPg0KICAgICAgPGRpdiBjbGFzcz0iZXh0cmEiPg0KICAgICAgICA8ZGl2IGNsYXNzPSJibG9jayBjbGVhcmZpeCI+DQogICAgICAgICAgPGRpdiBjbGFzcz0ibGVmdCI+UGx1bWJpbmcuQXNzb2NpYXRlPC9kaXY+DQogICAgICAgIDwvZGl2Pg0KICAgICAgICA8ZGl2IGNsYXNzPSJibG9jayBjbGVhcmZpeCI+DQogICAgICAgICAgPGRpdiBjbGFzcz0ibGVmdCI+MTA6MDBhIC0gNjozMHA8L2Rpdj4NCiAgICAgICAgPC9kaXY+DQogICAgICA8L2Rpdj4NCiAgICAgICAgPGRpdiBjbGFzcz0iYm90dG9tIGx1bmNoIj4NCiAgICAgICAgICAgIDxkaXYgY2xhc3M9ImxlZnQiPkw6IDE6MzBwIC0gMjowMHA8L2Rpdj4NCiAgICAgICAgPC9kaXY+DQogIDwvbGk+DQogIDxsaT4NCiAgICA8ZGl2IGNsYXNzPSJkYXRlIj48c3Bhbj4wMS8wNzwvc3Bhbj48L2Rpdj4NCiAgICA8c3BhbiBjbGFzcz0iaG91cnMiPjI6MDBwIC0gMzowMHAgPGVtPio8L2VtPjwvc3Bhbj4NCiAgICAgIDxkaXYgY2xhc3M9ImV4dHJhIj4NCiAgICAgICAgPGRpdiBjbGFzcz0iYmxvY2sgY2xlYXJmaXgiPg0KICAgICAgICAgIDxkaXYgY2xhc3M9ImxlZnQiPlNwZWNpYWx0eSBEUzwvZGl2Pg0KICAgICAgICA8L2Rpdj4NCiAgICAgICAgPGRpdiBjbGFzcz0iYmxvY2sgY2xlYXJmaXgiPg0KICAgICAgICAgIDxkaXYgY2xhc3M9ImxlZnQiPjI6MDBwIC0gMzowMHA8L2Rpdj4NCiAgICAgICAgPC9kaXY+DQogICAgICA8L2Rpdj4NCiAgICAgICAgPGRpdiBjbGFzcz0iYm90dG9tIGx1bmNoIj4NCiAgICAgICAgPC9kaXY+DQogIDwvbGk+DQogIDxsaT4NCiAgICA8ZGl2IGNsYXNzPSJkYXRlIj48c3Bhbj4wMS8wODwvc3Bhbj48L2Rpdj4NCiAgPC9saT4NCiAgPGxpPg0KICAgIDxkaXYgY2xhc3M9ImRhdGUiPjxzcGFuPjAxLzA5PC9zcGFuPjwvZGl2Pg0KICAgIDxzcGFuIGNsYXNzPSJob3VycyI+MTI6MDBwIC0gOTowMHAgPGVtPio8L2VtPjwvc3Bhbj4NCiAgICAgIDxkaXYgY2xhc3M9ImV4dHJhIj4NCiAgICAgICAgPGRpdiBjbGFzcz0iYmxvY2sgY2xlYXJmaXgiPg0KICAgICAgICAgIDxkaXYgY2xhc3M9ImxlZnQiPlBsdW1iaW5nLkFzc29jaWF0ZTwvZGl2Pg0KICAgICAgICA8L2Rpdj4NCiAgICAgICAgPGRpdiBjbGFzcz0iYmxvY2sgY2xlYXJmaXgiPg0KICAgICAgICAgIDxkaXYgY2xhc3M9ImxlZnQiPjEyOjAwcCAtIDk6MDBwPC9kaXY+DQogICAgICAgIDwvZGl2Pg0KICAgICAgPC9kaXY+DQogICAgICAgIDxkaXYgY2xhc3M9ImJvdHRvbSBsdW5jaCI+DQogICAgICAgICAgICA8ZGl2IGNsYXNzPSJsZWZ0Ij5MOiA0OjMwcCAtIDU6MDBwPC9kaXY+DQogICAgICAgIDwvZGl2Pg0KICA8L2xpPg0KICA8bGk+DQogICAgPGRpdiBjbGFzcz0iZGF0ZSI+PHNwYW4+MDEvMTA8L3NwYW4+PC9kaXY+DQogIDwvbGk+DQogIDxsaT4NCiAgICA8ZGl2IGNsYXNzPSJkYXRlIj48c3Bhbj4wMS8xMTwvc3Bhbj48L2Rpdj4NCiAgPC9saT4NCiAgPGxpIGNsYXNzPSJsYXN0LWNoaWxkIj4NCiAgICA8ZGl2IGNsYXNzPSJkYXRlIj48c3Bhbj4wMS8xMjwvc3Bhbj48L2Rpdj4NCiAgICA8c3BhbiBjbGFzcz0iaG91cnMiPjEyOjAwcCAtIDg6MDBwPC9zcGFuPg0KICAgICAgICA8ZGl2IGNsYXNzPSJib3R0b20gbHVuY2giPg0KICAgICAgICAgICAgPGRpdiBjbGFzcz0ibGVmdCI+TDogMzozMHAgLSA0OjAwcDwvZGl2Pg0KICAgICAgICA8L2Rpdj4NCiAgPC9saT4NCiAgPGxpIGNsYXNzPSJzbWFsbCI+DQogICAgPHNwYW4gY2xhc3M9InRvZ2dsZSBtaW4iPjxhIGhyZWY9IiMiIGNsYXNzPSJ0b2dnbGUgdmlldyI+dG9nZ2xlPC9hPjwvc3Bhbj4NCiAgICA8c3BhbiBjbGFzcz0iaG91cnMiPjI1LjAwPC9zcGFuPg0KICA8L2xpPg0KPC91bD4NCmQCFw8WAh8JaGQCAQ9kFgICAQ9kFgICAw8WAh8JaGQCJw8WAh8GBRVSZXR1cm4gdG8gVG9wIG9mIFBhZ2VkAikPFgIfCAUNZGlzcGxheTpub25lOxYCAgEPFgIfBgVCQ29weXJpZ2h0IMKpIEVtcG93ZXIgU29mdHdhcmUgU29sdXRpb25zLCBJbmMuIEFsbCByaWdodHMgcmVzZXJ2ZWQuZAIrDxYCHwgFDWRpc3BsYXk6bm9uZTtkAi0PDxYCHwloZBYCZg9kFgJmD2QWDgIFDxYCHwcFBUNsb3NlZAILD2QWAgIDDxBkZBYAZAIND2QWAgIDDxBkZBYAZAIPD2QWAgIDDxBkZBYAZAIRD2QWAgIDDxBkZBYAZAITD2QWAgIDDxBkZBYAZAIVDw8WAh8GBQVQdW5jaGRkAi8PDxYCHghJbWFnZVVybAUlL0VtcG93ZXJFU1MvSW1hZ2VzL0xvZ28vaG9tZWRlcG90LnBuZ2RkAjEPFgIfBgU0TE9WSU5TLCBQQVVMIEogLSBTY2hlZHVsZSBmb3IgMTIvMjIvMjAxOSAtIDEvMTIvMjAyMGQCMw8WAh8GBQQzOTE0ZAI1DxYCHwYFB1ByaW50ZWRkAjcPFgIfBgUWMTIvMjYvMjAxOSAxMTo0NzoxMiBQTWQCOQ8WAh4FdmFsdWUFBVByaW50ZAI7DxYCHxAFBUNsb3NlZBgDBR5fX0NvbnRyb2xzUmVxdWlyZVBvc3RCYWNrS2V5X18WAQUSY3RsMDAkdGFiQ29udGFpbmVyBSFjdGwwMCRtYXN0ZXJQbGFjZUhvbGRlciRNdWx0aVZpZXcPD2RmZAUSY3RsMDAkdGFiQ29udGFpbmVyDw9kZmSeuxYtp7b1P+yL0AfB83lsmiHbCg==" />
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['aspnetForm'];
+if (!theForm) {
+    theForm = document.aspnetForm;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="/EmpowerESS/WebResource.axd?d=aQc2Yd_nPgmv63vDIcYBQjmiSuOz7-tJs0SIj3Sm0fqaLdoXeU-pmhFD9pKCueg7V0JbdIPYe6AHJKGTtp068vjesLY1&amp;t=636271527501517547" type="text/javascript"></script>
+
+
+<script src="/EmpowerESS/Scripts/GenericTree.js" type="text/javascript"></script>
+<script src="/EmpowerESS/Scripts/LoadTree.js" type="text/javascript"></script>
+<script src="/EmpowerESS/Scripts/jquery-custom-libs.js" type="text/javascript"></script>
+<script src="/EmpowerESS/Scripts/LaborSelect.js" type="text/javascript"></script>
+<script src="/EmpowerESS/ScriptResource.axd?d=TWCsqo2EAui1BBjm_e523YtNV3SbhxAuyhFpV7_gGfpUr10XJ-UrrSbhfvh-I2fcY6NkxHMq75G3UPMv-M4pF1KJGSswPVKlJiHZLO4QLNzKyT5_ZgF0hp7jCfYkkTuANbBDw3c9a_UIJn1_Y_XWbdpq9P2IxdBcngEpLn2nCgSapnbu0&amp;t=3f4a792d" type="text/javascript"></script>
+<script src="/EmpowerESS/ScriptResource.axd?d=u2R3KxN3cZkbCTtjQCN4CVW3UnnFp7V-5pOGE6pv2obRtQvFnn9y-Xxq_dj3elNQBJQZVoLURF4phoG3JqkIfGJ9_mK-hkbbhFXBSTd7m1GGRPwIp1kLAuCJDjcro7hxrU37IG5X9RB45e_2EFbm9ne3JEXJviXABFloMnuLdWgGW7Pa0&amp;t=3f4a792d" type="text/javascript"></script>
+<script src="/EmpowerESS/ScriptResource.axd?d=XGCXoDmmd7BnCEIuetpemWmcI5DGQ-lrvMiN0cLKYPfJcJmT0InoyIkToMYiPZQZQR0srnXwrRl5z3DEEbMfZqtm2hbg4MyDj2Z9GIu_D1Dq-QyBS_3i2Z5bg6kGc6lSRm1wjNFkW3HXtCibFVw4ZMGUsJc1&amp;t=6e538240" type="text/javascript"></script>
+<script src="/EmpowerESS/ScriptResource.axd?d=6Kkvo6IgZw1spHiTsFD-M2ex78XJ8j99G-TJHkoHQWP2vqAb7ZcWZTFgD_sfUV69WOAFk5alviWA2ueN31S3W95dVpopKqTgeODTpCc-LUTILeMj3wCb-lL0TpAjT-ws9WQsrrtrWbDla8viUdVL_WiFfTs0pmuAo7PWiqR4xPa1L4Dl0&amp;t=6e538240" type="text/javascript"></script>
+<script src="/EmpowerESS/ScriptResource.axd?d=iTH2F6VjOe7H5QuMgvlMFmM4wMdgR_UP2IuoNeteok1BYLKMOKFFMTTQix-uLBsn0k8YJ4CgnAG4tflr951n2B3c0_cjkYGTeFks-7MiqOIiqHEopoA8W-YBiDdGwousDyDwAUO0h75P7srCsE6tEzRiOTM1&amp;t=6e538240" type="text/javascript"></script>
+<script src="/EmpowerESS/ScriptResource.axd?d=LMz-rF4g_zqQB9ADj7b5qlUUr6QIrohiYbHLO7qnC0WO0Bomod9DSMoc4WkZ_Y-da2BKHTs49lSzhC9OjbhyYLkdhvOkg0-0S2fxMykFaIOtXuxPdwinstjH5If_wjLH8KixHsY3BwJbRHzY41WLPeD2h0yFCYXcZpSgXfh2dP_6-QrBSvY8ycTf6HYN5L35qEX21g2&amp;t=6e538240" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+var PageMethods = function() {
+PageMethods.initializeBase(this);
+this._timeout = 0;
+this._userContext = null;
+this._succeeded = null;
+this._failed = null;
+}
+PageMethods.prototype = {
+_get_path:function() {
+ var p = this.get_path();
+ if (p) return p;
+ else return PageMethods._staticInstance.get_path();},
+DoAudit:function(arg,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'DoAudit',false,{arg:arg},succeededCallback,failedCallback,userContext); },
+LoadTreeAsync_LaborTreeLoader:function(treeLoader,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'LoadTreeAsync_LaborTreeLoader',false,{treeLoader:treeLoader},succeededCallback,failedCallback,userContext); },
+LoadTreeAsync_BusinessTreeLoader:function(treeLoader,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'LoadTreeAsync_BusinessTreeLoader',false,{treeLoader:treeLoader},succeededCallback,failedCallback,userContext); },
+LoadNodeAsync_LaborTreeLoader:function(treeLoader,nodeID,fullPath,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'LoadNodeAsync_LaborTreeLoader',false,{treeLoader:treeLoader,nodeID:nodeID,fullPath:fullPath},succeededCallback,failedCallback,userContext); },
+LoadNodeAsync_BusinessTreeLoader:function(treeLoader,nodeID,fullPath,succeededCallback, failedCallback, userContext) {
+return this._invoke(this._get_path(), 'LoadNodeAsync_BusinessTreeLoader',false,{treeLoader:treeLoader,nodeID:nodeID,fullPath:fullPath},succeededCallback,failedCallback,userContext); }}
+PageMethods.registerClass('PageMethods',Sys.Net.WebServiceProxy);
+PageMethods._staticInstance = new PageMethods();
+PageMethods.set_path = function(value) { PageMethods._staticInstance.set_path(value); }
+PageMethods.get_path = function() { return PageMethods._staticInstance.get_path(); }
+PageMethods.set_timeout = function(value) { PageMethods._staticInstance.set_timeout(value); }
+PageMethods.get_timeout = function() { return PageMethods._staticInstance.get_timeout(); }
+PageMethods.set_defaultUserContext = function(value) { PageMethods._staticInstance.set_defaultUserContext(value); }
+PageMethods.get_defaultUserContext = function() { return PageMethods._staticInstance.get_defaultUserContext(); }
+PageMethods.set_defaultSucceededCallback = function(value) { PageMethods._staticInstance.set_defaultSucceededCallback(value); }
+PageMethods.get_defaultSucceededCallback = function() { return PageMethods._staticInstance.get_defaultSucceededCallback(); }
+PageMethods.set_defaultFailedCallback = function(value) { PageMethods._staticInstance.set_defaultFailedCallback(value); }
+PageMethods.get_defaultFailedCallback = function() { return PageMethods._staticInstance.get_defaultFailedCallback(); }
+PageMethods.set_path("/EmpowerESS/Schedule.aspx");
+PageMethods.DoAudit= function(arg,onSuccess,onFailed,userContext) {PageMethods._staticInstance.DoAudit(arg,onSuccess,onFailed,userContext); }
+PageMethods.LoadTreeAsync_LaborTreeLoader= function(treeLoader,onSuccess,onFailed,userContext) {PageMethods._staticInstance.LoadTreeAsync_LaborTreeLoader(treeLoader,onSuccess,onFailed,userContext); }
+PageMethods.LoadTreeAsync_BusinessTreeLoader= function(treeLoader,onSuccess,onFailed,userContext) {PageMethods._staticInstance.LoadTreeAsync_BusinessTreeLoader(treeLoader,onSuccess,onFailed,userContext); }
+PageMethods.LoadNodeAsync_LaborTreeLoader= function(treeLoader,nodeID,fullPath,onSuccess,onFailed,userContext) {PageMethods._staticInstance.LoadNodeAsync_LaborTreeLoader(treeLoader,nodeID,fullPath,onSuccess,onFailed,userContext); }
+PageMethods.LoadNodeAsync_BusinessTreeLoader= function(treeLoader,nodeID,fullPath,onSuccess,onFailed,userContext) {PageMethods._staticInstance.LoadNodeAsync_BusinessTreeLoader(treeLoader,nodeID,fullPath,onSuccess,onFailed,userContext); }
+var gtc = Sys.Net.WebServiceProxy._generateTypedConstructor;
+Type.registerNamespace('EmpowerESS.UserControls.TreeControl');
+if (typeof(EmpowerESS.UserControls.TreeControl.LaborTreeLoader) === 'undefined') {
+EmpowerESS.UserControls.TreeControl.LaborTreeLoader=gtc("EmpowerESS.UserControls.TreeControl.LaborTreeLoader");
+EmpowerESS.UserControls.TreeControl.LaborTreeLoader.registerClass('EmpowerESS.UserControls.TreeControl.LaborTreeLoader');
+}
+if (typeof(EmpowerESS.UserControls.TreeControl.BusinessTreeLoader) === 'undefined') {
+EmpowerESS.UserControls.TreeControl.BusinessTreeLoader=gtc("EmpowerESS.UserControls.TreeControl.BusinessTreeLoader");
+EmpowerESS.UserControls.TreeControl.BusinessTreeLoader.registerClass('EmpowerESS.UserControls.TreeControl.BusinessTreeLoader');
+}
+//]]>
+</script>
+
+<div>
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="29B7B3F0" />
+</div>
+    <div id="screen" class="overflowShow relative overflowShow">
+        <div id="head" class="clearfix">
+            <noscript>
+                <div class="noscript">
+                    <div class="noscript-inner">
+                        <p>
+                            <strong>
+                                JavaScript seems to be disabled in your browser.</strong></p>
+                        <p>
+                            You must have JavaScript enabled in your browser to utilize the functionality of this application.</p>
+                    </div>
+                </div>
+            </noscript>
+            <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$Master_ScriptManager', document.getElementById('aspnetForm'));
+Sys.WebForms.PageRequestManager.getInstance()._updateControls(['tctl00$masterPlaceHolder$ctl00'], [], [], 90);
+//]]>
+</script>
+
+            <div id="headBox" class="centered">
+                <div id="headTitle">
+                    <h1>
+                        <a id="ctl00_aLogo" onclick="history.go(0);" title="homedepot.png" style="background:url('/EmpowerESS/Images/Logo/homedepot.png') no-repeat top left;"></a>
+                    </h1>
+                    <h2>
+                        <span>
+                            Employee</span>&nbsp;Self Service</h2>
+                </div>
+                <div id="headUser" class="bottomrad overflowShow">
+                    <div class="lft">
+                    </div>
+                    <div class="mid">
+                        <div class="line first-child">
+                            <div class="welcome">
+                                <div class="lftSide">
+                                    <div class="userInfo node">
+                                        <span class="greeting">
+                                            Welcome&nbsp;</span> <strong>
+                                                LOVINS, PAUL J</strong>
+                                    </div>
+                                    
+                                    <div class="date node">
+                                        Thursday, December 26th, 2019</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="rgt">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="nav" class="relative">
+            <div id="navBox" class="left block">
+                <div id="divTooltip">
+                    <span class="block"></span>
+                </div>
+                <ul id="toolbar">
+                    
+                    <li class="mail noShow">
+                        <a id="ctl00_btnEmail" class="main-sprite" href="javascript:__doPostBack('ctl00$btnEmail','')">Email</a>
+                        <span class="popout" style="display: none">
+                            Email this page</span> </li>
+                    <li id="ctl00_liMasterPrint" class="print"><a href="javascript:void(0)" id="ctl00_btnMasterPrint" onclick="printPreview(960,'contentMain',true)" class="main-sprite"><span id="ctl00_litPrint">Print</span></a><span class="popout"
+                            style="display: none">
+                            Print this page</span> </li>
+                    <li id="ctl00_helpIcon" class="help"><a href="javascript:void(0)" onclick="window.open('Help/EmpowerWFMESSHelp_CSH.htm#SCHEDULE','Help','width=700,height=600,scrollbars=yes,resizable=yes');"
+                        class="main-sprite">
+                        Help</a> <span class="popout" style="display: none">
+                            Get help on how to use this</span> </li>
+                    <li class="logout">
+                        <a onclick="document.execCommand('ClearAuthenticationCache', 'false');" id="ctl00_btnLogout" href="javascript:__doPostBack('ctl00$btnLogout','')">Sign out</a>
+                        <span class="popout" style="display: none">
+                            Sign out</span> </li>
+                </ul>
+                <div id="navTabs" class="left block">
+                    <div id="ctl00_tabContainer" class="navMenu" style="visibility:hidden;">
+	<div id="ctl00_tabContainer_header">
+		<span id="__tab_ctl00_tabContainer_tabSchedule">My Schedule</span><span id="__tab_ctl00_tabContainer_tabRequests">Schedule Requests</span><span id="__tab_ctl00_tabContainer_tabAvailability_MyAvailability">My Availability</span><span id="__tab_ctl00_tabContainer_tabPreference">My Preferences</span><span id="__tab_ctl00_tabContainer_tabAttendance">My Attendance</span>
+	</div><div id="ctl00_tabContainer_body">
+		<div id="ctl00_tabContainer_tabSchedule">
+
+		</div><div id="ctl00_tabContainer_tabRequests" style="display:none;visibility:hidden;">
+
+		</div><div id="ctl00_tabContainer_tabAvailability_MyAvailability" style="display:none;visibility:hidden;">
+
+		</div><div id="ctl00_tabContainer_tabPreference" style="display:none;visibility:hidden;">
+
+		</div><div id="ctl00_tabContainer_tabAttendance" style="display:none;visibility:hidden;">
+
+		</div>
+	</div>
+</div>
+                    <div class="clear">
+                    </div>
+                    <div class="topContent left clearfix">
+                    </div>
+                    
+<div id="ctl00_masterPlaceHolder_ctl00">
+	
+  <div id="content">
+    <div id="contentTop"> 
+      
+      <div class="rgtBtns">
+        <input type="submit" name="ctl00$masterPlaceHolder$btnCalendar" value="Calendar" id="ctl00_masterPlaceHolder_btnCalendar" disabled="disabled" title="Calendar" class="calendarBtn disabled" />
+        <input type="submit" name="ctl00$masterPlaceHolder$btnList" value="List" id="ctl00_masterPlaceHolder_btnList" title="List" class="listBtn" />
+      </div>
+    </div>
+    <div class="clear"></div>
+    <div id="contentMain">
+      <div id="ctl00_masterPlaceHolder_pnlViews" class="contentMain removePad">
+		
+        
+            
+
+    <div id="calendar">
+        <ul class="weekdays top">
+            
+            <li id="ctl00_masterPlaceHolder_essCalendar_lDay1" class="first-child">Mon</li>
+            <li>Tue</li>
+            <li>Wed</li>
+            <li>Thu</li>
+            <li>Fri</li>
+            <li>Sat</li>
+            <li id="ctl00_masterPlaceHolder_essCalendar_lDay7" class="last-child">Sun</li>
+            
+            <li class="small">Hrs</li>
+        </ul>
+        <div class="clear"></div>
+        <div class="dates">
+            <ul class="days row even max first-child">
+  <li class="first-child">
+    <div class="date"><span>12/23</span></div>
+    <span class="hours">6:00a - 2:30p <em>*</em></span>
+      <div class="extra">
+        <div class="block clearfix">
+          <div class="left">Plumbing.Associate</div>
+        </div>
+        <div class="block clearfix">
+          <div class="left">6:00a - 2:30p</div>
+        </div>
+      </div>
+        <div class="bottom lunch">
+            <div class="left">L: 10:00a - 10:30a</div>
+        </div>
+  </li>
+  <li>
+    <div class="date"><span>12/24</span></div>
+    <span class="hours">12:00p - 5:00p</span>
+        <div class="bottom lunch">
+        </div>
+  </li>
+  <li>
+    <div class="date"><span>12/25</span></div>
+  </li>
+  <li class="current">
+    <div class="date"><span>12/26</span></div>
+    <span class="hours">3:00p - 9:00p</span>
+        <div class="bottom lunch">
+        </div>
+  </li>
+  <li>
+    <div class="date"><span>12/27</span></div>
+    <span class="hours">9:00a - 5:30p <em>*</em></span>
+      <div class="extra">
+        <div class="block clearfix">
+          <div class="left">Plumbing.Associate</div>
+        </div>
+        <div class="block clearfix">
+          <div class="left">9:00a - 5:30p</div>
+        </div>
+      </div>
+        <div class="bottom lunch">
+            <div class="left">L: 1:30p - 2:00p</div>
+        </div>
+  </li>
+  <li>
+    <div class="date"><span>12/28</span></div>
+    <span class="hours">2:00p - 9:00p</span>
+        <div class="bottom lunch">
+            <div class="left">L: 5:00p - 5:30p</div>
+        </div>
+  </li>
+  <li class="last-child">
+    <div class="date"><span>12/29</span></div>
+  </li>
+  <li class="small">
+    <span class="toggle max"><a href="#" class="toggle view">toggle</a></span>
+    <span class="hours">33.50</span>
+  </li>
+</ul>
+<ul class="days row odd min clearfix">
+  <li class="first-child">
+    <div class="date"><span>12/30</span></div>
+  </li>
+  <li>
+    <div class="date"><span>12/31</span></div>
+    <span class="hours">10:00a - 6:00p</span>
+        <div class="bottom lunch">
+            <div class="left">L: 2:00p - 2:30p</div>
+        </div>
+  </li>
+  <li>
+    <div class="date"><span>01/01</span></div>
+    <span class="hours">11:30a - 8:00p</span>
+        <div class="bottom lunch">
+            <div class="left">L: 3:30p - 4:00p</div>
+        </div>
+  </li>
+  <li>
+    <div class="date"><span>01/02</span></div>
+  </li>
+  <li>
+    <div class="date"><span>01/03</span></div>
+    <span class="hours">12:00p - 9:00p</span>
+        <div class="bottom lunch">
+            <div class="left">L: 4:00p - 4:30p</div>
+        </div>
+  </li>
+  <li>
+    <div class="date"><span>01/04</span></div>
+    <span class="hours">9:00a - 5:30p</span>
+        <div class="bottom lunch">
+            <div class="left">L: 1:00p - 1:30p</div>
+        </div>
+  </li>
+  <li class="last-child">
+    <div class="date"><span>01/05</span></div>
+    <span class="hours">9:00a - 5:30p</span>
+        <div class="bottom lunch">
+            <div class="left">L: 1:00p - 1:30p</div>
+        </div>
+  </li>
+  <li class="small">
+    <span class="toggle min"><a href="#" class="toggle view">toggle</a></span>
+    <span class="hours">40.00</span>
+  </li>
+</ul>
+<ul class="days row even min last-child">
+  <li class="first-child">
+    <div class="date"><span>01/06</span></div>
+    <span class="hours">10:00a - 6:30p <em>*</em></span>
+      <div class="extra">
+        <div class="block clearfix">
+          <div class="left">Plumbing.Associate</div>
+        </div>
+        <div class="block clearfix">
+          <div class="left">10:00a - 6:30p</div>
+        </div>
+      </div>
+        <div class="bottom lunch">
+            <div class="left">L: 1:30p - 2:00p</div>
+        </div>
+  </li>
+  <li>
+    <div class="date"><span>01/07</span></div>
+    <span class="hours">2:00p - 3:00p <em>*</em></span>
+      <div class="extra">
+        <div class="block clearfix">
+          <div class="left">Specialty DS</div>
+        </div>
+        <div class="block clearfix">
+          <div class="left">2:00p - 3:00p</div>
+        </div>
+      </div>
+        <div class="bottom lunch">
+        </div>
+  </li>
+  <li>
+    <div class="date"><span>01/08</span></div>
+  </li>
+  <li>
+    <div class="date"><span>01/09</span></div>
+    <span class="hours">12:00p - 9:00p <em>*</em></span>
+      <div class="extra">
+        <div class="block clearfix">
+          <div class="left">Plumbing.Associate</div>
+        </div>
+        <div class="block clearfix">
+          <div class="left">12:00p - 9:00p</div>
+        </div>
+      </div>
+        <div class="bottom lunch">
+            <div class="left">L: 4:30p - 5:00p</div>
+        </div>
+  </li>
+  <li>
+    <div class="date"><span>01/10</span></div>
+  </li>
+  <li>
+    <div class="date"><span>01/11</span></div>
+  </li>
+  <li class="last-child">
+    <div class="date"><span>01/12</span></div>
+    <span class="hours">12:00p - 8:00p</span>
+        <div class="bottom lunch">
+            <div class="left">L: 3:30p - 4:00p</div>
+        </div>
+  </li>
+  <li class="small">
+    <span class="toggle min"><a href="#" class="toggle view">toggle</a></span>
+    <span class="hours">25.00</span>
+  </li>
+</ul>
+
+        </div>
+    </div>
+    <div class="clear"></div>
+    
+    <div id="ctl00_masterPlaceHolder_essCalendar_divCalPrt" style="display:none;height:0px;width:0px;"><table id="csp" border="1" cellspacing="0" cellpadding="1"><tr id="csph"><td>Mon</td><td>Tue</td><td>Wed</td><td>Thu</td><td>Fri</td><td>Sat</td><td>Sun</td><td>Hrs</td></tr><tr id="cspl"><td valign=top>12/23</br></br>6:00a - 2:30p <em>*</em></br>Plumbing.Associate</br>6:00a - 2:30p</br><nobr>L: 10:00a - 10:30a</nobr></br></td><td valign=top>12/24</br></br>12:00p - 5:00p</br></td><td valign=top>12/25</br></br></td><td valign=top>12/26</br></br>3:00p - 9:00p</br></td><td valign=top>12/27</br></br>9:00a - 5:30p <em>*</em></br>Plumbing.Associate</br>9:00a - 5:30p</br><nobr>L: 1:30p - 2:00p</nobr></br></td><td valign=top>12/28</br></br>2:00p - 9:00p</br><nobr>L: 5:00p - 5:30p</nobr></br></td><td valign=top>12/29</br></br></td><td valign=middle>33.50</td></tr><tr id="cspl"><td valign=top>12/30</br></br></td><td valign=top>12/31</br></br>10:00a - 6:00p</br><nobr>L: 2:00p - 2:30p</nobr></br></td><td valign=top>01/01</br></br>11:30a - 8:00p</br><nobr>L: 3:30p - 4:00p</nobr></br></td><td valign=top>01/02</br></br></td><td valign=top>01/03</br></br>12:00p - 9:00p</br><nobr>L: 4:00p - 4:30p</nobr></br></td><td valign=top>01/04</br></br>9:00a - 5:30p</br><nobr>L: 1:00p - 1:30p</nobr></br></td><td valign=top>01/05</br></br>9:00a - 5:30p</br><nobr>L: 1:00p - 1:30p</nobr></br></td><td valign=middle>40.00</td></tr><tr id="cspl"><td valign=top>01/06</br></br>10:00a - 6:30p <em>*</em></br>Plumbing.Associate</br>10:00a - 6:30p</br><nobr>L: 1:30p - 2:00p</nobr></br></td><td valign=top>01/07</br></br>2:00p - 3:00p <em>*</em></br>Specialty DS</br>2:00p - 3:00p</br></td><td valign=top>01/08</br></br></td><td valign=top>01/09</br></br>12:00p - 9:00p <em>*</em></br>Plumbing.Associate</br>12:00p - 9:00p</br><nobr>L: 4:30p - 5:00p</nobr></br></td><td valign=top>01/10</br></br></td><td valign=top>01/11</br></br></td><td valign=top>01/12</br></br>12:00p - 8:00p</br><nobr>L: 3:30p - 4:00p</nobr></br></td><td valign=middle>25.00</td></tr></table></div>
+
+          
+      
+	</div>
+    </div>
+  </div>
+
+</div>
+
+                    <!-- End Content -->
+                    <div class="btmContent left clearfix">
+                    </div>
+                </div>
+                <div class="clear">
+                </div>
+                <div id="footer" class="overflowShow">
+                    <a href="Javascript:void(0);" id="toTop" class="main-sprite noShow" onclick="javascript:toTop();">
+                        Return to Top of Page</a>
+                    <div id="ctl00_empowerLogo" class="empower main-sprite" style="display:none;">
+                        Copyright © Empower Software Solutions, Inc. All rights reserved.</div>
+                </div>
+                <div id="ctl00_divMasterMessage" class="mastermessage" style="display:none;">
+                </div>
+            </div>
+        </div>
+        <div id="divPunch" class="punch modal" style="display: none">
+            
+        </div>
+        <div id="divBlanket" style="display: none;">
+        </div>
+    </div>
+    <div id="divPrint" style="display: none;">
+        <div id="printHead">
+            <div id="printHeadBox">
+                <div id="printHeadTitle">
+                    <img id="ctl00_imgClientLogo" class="printLogo" src="/EmpowerESS/Images/Logo/homedepot.png" alt="" align="left" style="border-width:0px;" />
+                    <h2>
+                        LOVINS, PAUL J - Schedule for 12/22/2019 - 1/12/2020</h2>
+                    <br />
+                    <p id="printInfo">
+                        3914<br />
+                        Printed&nbsp;12/26/2019 11:47:12 PM
+                    </p>
+                </div>
+                <div id="printControlBox" class="rgtBtns">
+                    <input name="ctl00$btnPrintOut" type="button" id="ctl00_btnPrintOut" onclick="window.print();" value="Print" />
+                    <input name="ctl00$btnPrintClose" type="button" id="ctl00_btnPrintClose" onclick="hidePrintPopup();" value="Close" />
+                </div>
+            </div>
+        </div>
+        <div id="divPrintContent">
+        </div>
+        <!-- Printed Content Placed Here -->
+    </div>
+    
+
+<script type="text/javascript">
+//<![CDATA[
+document.getElementById('calendar').className = 'cal7';Sys.Application.initialize();
+Sys.Application.add_init(function() {
+    $create(AjaxControlToolkit.TabPanel, {"headerTab":$get("__tab_ctl00_tabContainer_tabSchedule")}, null, {"owner":"ctl00_tabContainer"}, $get("ctl00_tabContainer_tabSchedule"));
+});
+Sys.Application.add_init(function() {
+    $create(AjaxControlToolkit.TabPanel, {"headerTab":$get("__tab_ctl00_tabContainer_tabRequests")}, null, {"owner":"ctl00_tabContainer"}, $get("ctl00_tabContainer_tabRequests"));
+});
+Sys.Application.add_init(function() {
+    $create(AjaxControlToolkit.TabPanel, {"headerTab":$get("__tab_ctl00_tabContainer_tabAvailability_MyAvailability")}, null, {"owner":"ctl00_tabContainer"}, $get("ctl00_tabContainer_tabAvailability_MyAvailability"));
+});
+Sys.Application.add_init(function() {
+    $create(AjaxControlToolkit.TabPanel, {"headerTab":$get("__tab_ctl00_tabContainer_tabPreference")}, null, {"owner":"ctl00_tabContainer"}, $get("ctl00_tabContainer_tabPreference"));
+});
+Sys.Application.add_init(function() {
+    $create(AjaxControlToolkit.TabPanel, {"headerTab":$get("__tab_ctl00_tabContainer_tabAttendance")}, null, {"owner":"ctl00_tabContainer"}, $get("ctl00_tabContainer_tabAttendance"));
+});
+Sys.Application.add_init(function() {
+    $create(AjaxControlToolkit.TabContainer, {"activeTabIndex":0,"autoPostBackId":"ctl00$tabContainer","clientStateField":$get("ctl00_tabContainer_ClientState")}, null, null, $get("ctl00_tabContainer"));
+});
+//]]>
+</script>
+</form>
+    <!-- Javascripts -->
+    <script type="text/javascript">
+        function showMasterPrintButton(show) {
+            if (show != null && show == false) {
+                $("#ctl00_liMasterPrint").attr("class", "noShow");
+            }
+            else {
+                $("#ctl00_liMasterPrint").attr("class", "print");
+            }
+        }
+        function initApp() {
+            $('body,html').animate({ scrollTop: 0 }, 0);
+        }
+
+        function showTransferPunch() {
+            //var windowHeight = getGetWindowHeight();
+            //showBlanket(76);
+            //$('#divBlanket').css({ top: 37 }).addClass('bgTrans');
+            var _loc1 = '77px';
+            var _loc2 = ((getWindowWidth() / 2) + 90);
+            var _loc3 = $('#btnPunch').offset();
+            var _loc4 = _loc3.left;
+            var _loc5 = _loc4 - 296;
+            //alert(_loc5);
+            $("#divPunch").css({ top: _loc1, left: _loc5 }).stop().fadeIn(50);
+            PageMethods.DoAudit("Transfer Punch", OnSucceeded, OnFailed);
+        }
+
+        function OnSucceeded(result) {
+        }
+
+        function OnFailed(result) {
+        }
+
+        function hideMessage() {
+            $("#ctl00_divMasterMessage").empty().hide();
+            var currentUrl = window.location.href;
+            if (currentUrl.indexOf("?msg=") != -1)
+                window.location.href = currentUrl.substring(0, currentUrl.indexOf("?msg="));
+        }
+
+        function closeTransferPunch() {
+            CloseDialog();
+            $("#divPunch").fadeOut(200);
+        }
+
+        function initTooltip() {
+            $('#divTooltip').css('right', $('#toolbar').css('width'));
+            $('#toolbar').children().mouseover(function () {
+                $('#divTooltip .block').html(($(this).find('span.popout').html()));
+                $('#divTooltip').show();
+            });
+            $('#toolbar').children().mouseout(function () {
+                $('#divTooltip').hide();
+            });
+
+        }
+
+        $(document).ready(function () {
+            initTooltip();
+        });
+
+        var prm = Sys.WebForms.PageRequestManager.getInstance();
+        prm.add_endRequest(function () {
+            initTooltip();
+        }); 
+
+   
+    </script>
+    <script charset="utf-8" src="./Scripts/main.js" type="text/javascript"></script>
+</body>
+</html>
+
