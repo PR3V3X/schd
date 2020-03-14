@@ -1,6 +1,9 @@
 import os
 import bs4 as bs
 
+# Sign into THD Schd page using "requests" library.
+
+# Rework this to be in Python, "sed" is Linux only.
 # This removes html bloat from schd.html.
 os.system("sed '1 , 277d; 494, 999d' <my_schd.html> schd_alt.html")
 
@@ -44,3 +47,5 @@ for i in lunch:
 
 file.close()
 
+
+# Add Google Calender API integration.
